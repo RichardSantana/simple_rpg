@@ -2,8 +2,8 @@
 
 ## The game's characters ##
 
-class Player:
-    #
+class Player():
+    player = "player"
 
-class Enemy:
-    #
+class Enemy():
+    enemy = "enemy"
