@@ -12,9 +12,11 @@ def play():
 
     print("Please enter your character name: ")
 
-    Player.name = input()
+    player = Player(input(), 1, 20, 0)
 
-    print(Player.name)
+    print(player.name)
+
+    player.attack()
 
 if __name__ == '__main__':
     play()
