@@ -18,8 +18,7 @@ class Player:
         return damage
 
 class Enemy:
-    def __init__(self, type, power, health):
-        self.type = name
+    def __init__(self, power, health):
         self.power = power
         self.health = health
 
