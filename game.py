@@ -9,7 +9,7 @@ def encounter(player):
 
     time.sleep(1)
 
-    enemy = Enemy(1, 20)
+    enemy = Enemy("Imp", 1, 20)
 
     print("You've encountered an enemy!\n")
 
@@ -28,13 +28,13 @@ def encounter(player):
 
         elif input() == "heal":
             player.health = player.health + player.heal()
-            print(f"You now have {player.health} health remaining.")
+            print(f"You now have {player.health} health remaining.\n")
 
         else:
             print("Invalid response. What would you like to do?\nAttack\nRun")
 
         player.health = player.health - enemy.attack()
-        print(f"You have {player.health} health remaining.")
+        print(f"You have {player.health} health remaining.\n")
 
     print(f"You have defeated {enemy.name}!")
 

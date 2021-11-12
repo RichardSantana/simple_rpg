@@ -4,12 +4,11 @@
 
 import random
 
-class Player:
-    def __init__(self, name, power, health, exp):
+class Creature:
+    def __init__(self, name, power, health):
         self.name = name
         self.power = power
         self.health = health
-        self.exp = exp
 
     def attack(self):
         multiplier = 10 * random.random()
@@ -17,12 +16,14 @@ class Player:
         print (f"{self.name} deals {damage} damage!")
         return damage
 
-class Enemy:
-    def __init__(self, power, health):
-        self.power = power
-        self.health = health
+class Player(Creature):
+    def __init__(self, name, power, health, exp):
+        super().__init__(name, power, health)
+        self.exp = exp
 
-hhhhh
+class Enemy(Creature):
+    def __init__(self, name, power, health):
+        super().__init__(name, power, health)
 
 # class Imp(Enemy):
 #
