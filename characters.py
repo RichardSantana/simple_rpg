@@ -22,6 +22,9 @@ class Enemy:
         self.power = power
         self.health = health
 
+
+        ttttttttttttttt
+
 # class Imp(Enemy):
 #
 #     #
