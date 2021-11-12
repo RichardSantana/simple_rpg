@@ -7,36 +7,52 @@ import time
 
 def encounter(player):
 
-    enemy = Enemy(5, 20)
+    time.sleep(1)
 
-    print("You've encountered an enemy!")
+    enemy = Enemy(1, 20)
+
+    print("You've encountered an enemy!\n")
+
+    time.sleep(1)
 
     while enemy.health > 0:
-        print("What would you like to do?\nAttack\nRun")
+        time.sleep(1)
+
+        print("What would you like to do?\nAttack\nHeal\nRun\n")
+
         if input() == "attack":
             enemy.health = enemy.health - player.attack()
-        elif input() == "run":
-            player.run()
+            if player.health < 0:
+                print("You have died.")
+                quit()
+
+        elif input() == "heal":
+            player.health = player.health + player.heal()
+            print(f"You now have {player.health} health remaining.")
+
         else:
             print("Invalid response. What would you like to do?\nAttack\nRun")
 
-    print("You win!")
+        player.health = player.health - enemy.attack()
+        print(f"You have {player.health} health remaining.")
+
+    print(f"You have defeated {enemy.name}!")
 
 def play():
-    print("------------ Welcome to Simple RPG ------------")
+    print("------------ Welcome to Simple RPG ------------\n")
 
-    time.sleep(3)
+    time.sleep(1)
 
-    print("Please enter your character name: ")
+    print("Please enter your character name: \n")
 
-    player = Player(input(), 1, 20, 0)
+    player = Player(input(), 1, 100, 0)
 
     while(True):
         encounter(player)
-    #
-    # print(player.name)
-    #
-    # player.attack()
+
+    print(player.name)
+
+    player.attack()
 
 if __name__ == '__main__':
     play()
