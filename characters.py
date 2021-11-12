@@ -25,6 +25,8 @@ class Enemy(Creature):
     def __init__(self, name, power, health):
         super().__init__(name, power, health)
 
+#TEST
+
 # class Imp(Enemy):
 #
 #     #
