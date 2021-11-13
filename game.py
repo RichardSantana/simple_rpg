@@ -9,7 +9,7 @@ def encounter(player):
 
     time.sleep(1)
 
-    enemy = Enemy("Imp", 1, 20)
+    enemy = Enemy("Imp", 1, 20, 20)
 
     print("You've encountered an enemy!\n")
 
@@ -18,25 +18,32 @@ def encounter(player):
     while enemy.health > 0:
         time.sleep(1)
 
-        print("What would you like to do?\nAttack\nHeal\nRun\n")
+        player_move = input("What would you like to do?\nAttack\nHeal\nRun\n")
 
-        if input() == "attack":
-            enemy.health = enemy.health - player.attack()
-            if player.health < 0:
-                print("You have died.")
-                quit()
-
-        elif input() == "heal":
-            player.health = player.health + player.heal()
-            print(f"You now have {player.health} health remaining.\n")
+        if (player_move != "attack") and (player_move != "heal") and (player_move != "run"):
+            print("Invalid response.\n")
+            print(player_move)
+            continue
 
         else:
-            print("Invalid response. What would you like to do?\nAttack\nRun")
+            if player_move == "attack":
+                enemy.health = enemy.health - player.attack()
+                if player.health < 0:
+                    print("You have died.")
+                    quit()
+
+            if player_move == "heal":
+                player.health = player.health + player.heal()
+                print(f"You now have {player.health} health remaining.\n")
+
+            if player_move == "run":
+                print("You have run away!\n")
+                return
 
         player.health = player.health - enemy.attack()
         print(f"You have {player.health} health remaining.\n")
 
-    print(f"You have defeated {enemy.name}!")
+    print(f"You have defeated {enemy.name}!\nYou have gained {enemy.exp} experience!")
 
 def play():
     print("------------ Welcome to Simple RPG ------------\n")
@@ -45,7 +52,7 @@ def play():
 
     print("Please enter your character name: \n")
 
-    player = Player(input(), 1, 100, 0)
+    player = Player(input(), 1, 100, 100)
 
     while(True):
         encounter(player)
