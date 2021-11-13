@@ -31,24 +31,34 @@ class Enemy(Creature):
     def __init__(self, name, power, health, exp):
         super().__init__(name, power, health, exp)
 
+class Imp(Enemy):
 
-        tttttttttt3
+    def __init__(self, name, power, health, exp):
+        self.name = "Imp"
+        self.power = 1
+        self.health = 20
+        self.exp = 20
 
-# class Imp(Enemy):
-#
-#     #
-#
-#
-# class Elf(Enemy):
-#
-#     #
-#
-#
-# class Orc(Enemy):
-#
-#     #
-#
-#
-# class Dragon(Enemy):
-#
-#     #
+class Elf(Enemy):
+
+    def __init__(self, name, power, health, exp):
+        self.name = "Elf"
+        self.power = 1.25
+        self.health = 40
+        self.exp = 50
+
+class Orc(Enemy):
+
+    def __init__(self, name, power, health, exp):
+        self.name = "Orc"
+        self.power = 1.5
+        self.health = 60
+        self.exp = 100
+
+class Dragon(Enemy):
+
+    def __init__(self, name, power, health, exp):
+        self.name = "Dragon"
+        self.power = 2
+        self.health = 200
+        self.exp = 100000
